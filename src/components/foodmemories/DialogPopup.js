@@ -1,7 +1,8 @@
-import { Dialog, Button } from "@mui/material";
+import { Dialog, Button, Typography } from "@mui/material";
 import { postDish, editDish } from "./dbDish";
 import { Restaurant } from "@mui/icons-material";
 import DialogField from "./DialogField";
+import { useSession, signOut } from "next-auth/react";
 
 export default function DialogPopup({
   open,
@@ -11,6 +12,25 @@ export default function DialogPopup({
   buttonFunction,
   savedId,
 }) {
+  const { data: session } = useSession();
+
+  function handleClose() {
+    if (savedId) {
+      setCurrentItem({
+        dishid: savedId,
+      });
+    }
+    setOpen(false);
+  }
+
+  if (!session) {
+    return (
+      <Dialog open={open} onClose={handleClose}>
+        <Typography>Please login to add a memory.</Typography>
+      </Dialog>
+    );
+  }
+
   const searchInput = (e) => {
     setCurrentItem({
       ...currentItem,
@@ -27,15 +47,6 @@ export default function DialogPopup({
     });
     setOpen(false);
   };
-
-  function handleClose() {
-    if (savedId) {
-      setCurrentItem({
-        dishid: savedId,
-      });
-    }
-    setOpen(false);
-  }
 
   return (
     <Dialog open={open} onClose={handleClose}>

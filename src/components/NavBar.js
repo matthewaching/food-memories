@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { AppBar, Box, Button, Toolbar } from "@mui/material";
-import { GitHub, VpnKey } from "@mui/icons-material";
+import { GitHub } from "@mui/icons-material";
+import LoginButton from "./LoginButton";
 
 function NavBar() {
   return (
@@ -27,6 +27,17 @@ function NavBar() {
             gap: "2.5rem",
           }}
         >
+          <Button
+            href="/"
+            variant="text"
+            sx={{
+              color: "#023047",
+              fontWeight: "bold",
+            }}
+          >
+            Home
+          </Button>
+
           <a
             href="https://recipe-generator-matthewaching.vercel.app/"
             target="_blank"
@@ -64,12 +75,7 @@ function NavBar() {
             mr: "-1rem",
           }}
         >
-          <Button href="/login">
-            <VpnKey
-              htmlColor="#023047"
-              sx={{ fontSize: "59px", alignSelf: "center", mt: "0px" }}
-            />
-          </Button>
+          <LoginButton />
         </Box>
       </Toolbar>
     </AppBar>
