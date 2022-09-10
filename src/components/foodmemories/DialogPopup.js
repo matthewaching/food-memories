@@ -1,8 +1,9 @@
-import { Dialog, Button, Typography } from "@mui/material";
+import { Dialog, Button, Typography, Box } from "@mui/material";
 import { postDish, editDish } from "./dbDish";
 import { Restaurant } from "@mui/icons-material";
 import DialogField from "./DialogField";
-import { useSession, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 export default function DialogPopup({
   open,
@@ -26,7 +27,19 @@ export default function DialogPopup({
   if (!session) {
     return (
       <Dialog open={open} onClose={handleClose}>
-        <Typography>Please login to add a memory.</Typography>
+        <Box
+          sx={{
+            width: "200px",
+            height: "200px",
+            display: "flex",
+            textAlign: "center",
+            alignItems: "center",
+          }}
+        >
+          <Typography>
+            Please <Link href="/login">login</Link> to add a memory.
+          </Typography>
+        </Box>
       </Dialog>
     );
   }
