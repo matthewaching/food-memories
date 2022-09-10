@@ -2,10 +2,14 @@ import "../src/App.css";
 import { PropTypes } from "prop-types";
 import NavBar from "../src/components/NavBar";
 import Head from "next/head";
+import { SessionProvider } from "next-auth/react";
 
-export default function MyApp({ Component, pageProps }) {
+export default function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
   return (
-    <>
+    <SessionProvider session={session}>
       <Head>
         <title>Matt&apos;s Food App</title>
         <meta charSet="utf-8" />
@@ -19,7 +23,7 @@ export default function MyApp({ Component, pageProps }) {
       </Head>
       <NavBar />
       <Component {...pageProps} />
-    </>
+    </SessionProvider>
   );
 }
 
