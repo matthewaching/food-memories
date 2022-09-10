@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AppBar, Box, Button, Toolbar } from "@mui/material";
-import { GitHub, AccountCircle, VpnKey } from "@mui/icons-material";
+import { GitHub, VpnKey } from "@mui/icons-material";
 
 function NavBar() {
   return (
@@ -27,7 +27,12 @@ function NavBar() {
             gap: "2.5rem",
           }}
         >
-          <Link href="/">
+          <a
+            href="https://recipe-generator-matthewaching.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="recipe-link"
+          >
             <Button
               variant="text"
               sx={{
@@ -35,33 +40,9 @@ function NavBar() {
                 fontWeight: "bold",
               }}
             >
-              Home
+              Random Recipe Generator App
             </Button>
-          </Link>
-
-          <Link href="/foodmemories">
-            <Button
-              variant="text"
-              sx={{
-                color: "#023047",
-                fontWeight: "bold",
-              }}
-            >
-              Food Memories
-            </Button>
-          </Link>
-
-          <Link href="/recipelookup">
-            <Button
-              variant="text"
-              sx={{
-                color: "#023047",
-                fontWeight: "bold",
-              }}
-            >
-              Recipe Generator
-            </Button>
-          </Link>
+          </a>
         </Box>
         <Box
           sx={{

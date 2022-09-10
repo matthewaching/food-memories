@@ -49,7 +49,7 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
         <TableCell>
           <Link
             href={{
-              pathname: "/foodmemories/detailedview",
+              pathname: "/detailedview",
               query: { dish: `${dishid}` },
             }}
           >

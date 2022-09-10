@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { onValue, ref } from "firebase/database";
-import { db } from "../../../src/firebase-config";
+import { db } from "../../src/firebase-config";
 import { Box, Divider, Typography } from "@mui/material";
 
 export default function DetailedView() {

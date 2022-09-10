@@ -1,105 +1,59 @@
-import { Box, Typography } from "@mui/material";
-import { DinnerDining, ManageSearch } from "@mui/icons-material";
-import Link from "next/link";
+import MemoryTable from "../src/components/foodmemories/MemoryTable";
+import Hero from "../src/components/foodmemories/Hero";
+import { onValue, ref } from "firebase/database";
+import { useState, useEffect } from "react";
+import { db } from "../src/firebase-config";
+import { Box } from "@mui/material";
 
-export default function App() {
+export default function FoodMemories() {
+  const url = "https://foodmemories-6b5eb-default-rtdb.firebaseio.com/";
+
+  const [currentDb, setDb] = useState();
+
+  useEffect(() => {
+    return onValue(ref(db), (querySnapShot) => {
+      let data = querySnapShot.val() || {};
+      setDb(data);
+    });
+  }, []);
+
+  const idArray = (() => {
+    if (!currentDb) return;
+    if (!currentDb.dishes) return 0;
+    return Object.keys(currentDb.dishes);
+  })();
+
+  const startId = (() => {
+    if (!currentDb) return;
+    const numArray = idArray
+      .map((id) => Number(id))
+      .sort((a, b) => (a > b ? -1 : 1));
+    return numArray[0] + 1;
+  })();
+
+  const [currentItem, setCurrentItem] = useState({
+    dishid: startId,
+  });
+
   return (
-    <div className="App">
-      <h1>Welcome to my Food App!</h1>
-      <h2>This app consists of two related projects:</h2>
-      <Box
-        sx={{
-          display: "flex",
-          gap: "48px",
-          mb: "48px",
-        }}
-      >
-        <Link href="/foodmemories">
-          <Box
-            sx={{
-              cursor: "pointer",
-              border: "2px solid black",
-              borderRadius: "15px",
-              height: "20vh",
-              width: "30vw",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: "16px",
-              gap: "8px",
-            }}
-          >
-            <Box
-              sx={{
-                display: "flex",
-                gap: ".75rem",
-              }}
-            >
-              <DinnerDining fontSize="large" />
-              <Typography
-                sx={{
-                  fontSize: "24px",
-                  fontWeight: "bold",
-                }}
-              >
-                Food Memories
-              </Typography>
-            </Box>
-            <Typography>
-              A database record of memorable dishes I have eaten or cooked
-            </Typography>
-            <Typography></Typography>
-          </Box>
-        </Link>
-        <Link href="/recipelookup">
-          <Box
-            sx={{
-              cursor: "pointer",
-              border: "2px solid black",
-              borderRadius: "15px",
-              height: "20vh",
-              width: "30vw",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: "16px",
-              gap: "8px",
-            }}
-          >
-            <Box
-              sx={{
-                display: "flex",
-                gap: ".75rem",
-              }}
-            >
-              <ManageSearch fontSize="large" />
-              <Typography
-                sx={{
-                  fontSize: "24px",
-                  fontWeight: "bold",
-                }}
-              >
-                Recipe Generator
-              </Typography>
-            </Box>
-            <Typography>
-              A tool that queries a recipe API for a random entry
-            </Typography>
-            <Typography></Typography>
-          </Box>
-        </Link>
-      </Box>
-      <Typography variant="body1">
-        This app was constructed with React inside a Next.js framework.
-      </Typography>
-      <Typography variant="body1">
-        Material UI libraries were utilized for frontend design.
-      </Typography>
-      <Typography variant="body1">
-        The app is hosted on Firebase Hosting with Realtime Database.
-      </Typography>
-    </div>
+    <Box
+      className="food-mem"
+      sx={{
+        height: "100%",
+        backgroundColor: "#8ecae6",
+      }}
+    >
+      <Hero
+        currentItem={currentItem}
+        setCurrentItem={setCurrentItem}
+        currentDb={currentDb}
+      />
+      <MemoryTable
+        currentItem={currentItem}
+        setCurrentItem={setCurrentItem}
+        currentDb={currentDb}
+        idArray={idArray}
+      />
+    </Box>
   );
 }
