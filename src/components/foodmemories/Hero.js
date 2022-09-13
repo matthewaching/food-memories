@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import DialogButton from "./DialogButton";
+
 export default function Hero({ currentItem, setCurrentItem, currentDb }) {
   return (
     <Box

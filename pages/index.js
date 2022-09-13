@@ -6,34 +6,31 @@ import { db } from "../src/firebase-config";
 import { Box } from "@mui/material";
 
 export default function FoodMemories() {
-  const url = "https://foodmemories-6b5eb-default-rtdb.firebaseio.com/";
-
   const [currentDb, setDb] = useState();
 
+  const [currentItem, setCurrentItem] = useState({});
+
+  // useEffect(() => {
+  //   return onValue(ref(db), (querySnapShot) => {
+  //     let data = querySnapShot.val() || {};
+  //     setDb(data);
+  //   });
+  // }, []);
+
   useEffect(() => {
-    return onValue(ref(db), (querySnapShot) => {
-      let data = querySnapShot.val() || {};
-      setDb(data);
-    });
+    (async () => {
+      let dishData = await fetch("/api/getDishes");
+      dishData = await dishData.json();
+      console.log(dishData);
+      setDb(dishData);
+      const maxData = await fetch("/api/getMaxId");
+      const maxId = 12;
+      console.log(maxId);
+      setCurrentItem({
+        id: maxId,
+      });
+    })();
   }, []);
-
-  const idArray = (() => {
-    if (!currentDb) return;
-    if (!currentDb.dishes) return 0;
-    return Object.keys(currentDb.dishes);
-  })();
-
-  const startId = (() => {
-    if (!currentDb) return;
-    const numArray = idArray
-      .map((id) => Number(id))
-      .sort((a, b) => (a > b ? -1 : 1));
-    return numArray[0] + 1;
-  })();
-
-  const [currentItem, setCurrentItem] = useState({
-    dishid: startId,
-  });
 
   return (
     <Box
@@ -52,7 +49,6 @@ export default function FoodMemories() {
         currentItem={currentItem}
         setCurrentItem={setCurrentItem}
         currentDb={currentDb}
-        idArray={idArray}
       />
     </Box>
   );

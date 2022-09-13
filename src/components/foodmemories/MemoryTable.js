@@ -17,15 +17,11 @@ export default function MemoryTable({
   currentItem,
   setCurrentItem,
   currentDb,
-  idArray,
 }) {
-  if (!idArray) return;
-  console.log(idArray);
+  if (!currentDb) return;
   const [currentPage, setPage] = useState(1);
-  const pageContents = idArray.slice((currentPage - 1) * 10, currentPage * 10);
-  const pageObjects = pageContents.map((dishId) => {
-    return currentDb.dishes[dishId];
-  });
+
+  const pageObjects = currentDb.slice((currentPage - 1) * 10, currentPage * 10);
 
   const changePage = (e, pageNum) => {
     setPage(pageNum);
