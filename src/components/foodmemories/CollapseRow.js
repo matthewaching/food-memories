@@ -13,13 +13,13 @@ import DialogPopup from "./DialogPopup";
 import { Edit, ExpandMore, ExpandLess } from "@mui/icons-material";
 
 export default function CollapseRow({ item, currentItem, setCurrentItem }) {
-  const { dishid, name, date, location, city, type, meal, cooked } = item;
+  const { id, name, date, location, city, type, meal, cooked } = item;
   const [rowOpen, setRowOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [savedId, setSavedId] = useState();
 
   function EditItem() {
-    setSavedId(currentItem.dishid);
+    setSavedId(currentItem.id);
     setCurrentItem({
       ...item,
     });
@@ -45,12 +45,12 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
   }
   return (
     <>
-      <TableRow className="itemTable" key={dishid}>
+      <TableRow className="itemTable" key={id}>
         <TableCell>
           <Link
             href={{
               pathname: "/detailedview",
-              query: { dish: `${dishid}` },
+              query: { dish: `${id}` },
             }}
           >
             <a>{name}</a>

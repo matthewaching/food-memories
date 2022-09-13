@@ -1,5 +1,4 @@
 import { Dialog, Button, Typography, Box } from "@mui/material";
-import { postDish, editDish } from "./dbDish";
 import { Restaurant } from "@mui/icons-material";
 import DialogField from "./DialogField";
 import { useSession } from "next-auth/react";
@@ -18,7 +17,7 @@ export default function DialogPopup({
   function handleClose() {
     if (savedId) {
       setCurrentItem({
-        dishid: savedId,
+        id: savedId,
       });
     }
     setOpen(false);
@@ -53,10 +52,10 @@ export default function DialogPopup({
 
   const addItem = (e) => {
     e.preventDefault();
-    if (buttonFunction === "post") postDish(currentItem);
-    if (buttonFunction === "edit") editDish(currentItem);
+    // if (buttonFunction === "post") postDish(currentItem);
+    // if (buttonFunction === "edit") editDish(currentItem);
     setCurrentItem({
-      dishid: currentItem.dishid + 1,
+      id: currentItem.id + 1,
     });
     setOpen(false);
   };
