@@ -19,9 +19,7 @@ Practice on atomic committing and appropriate commenting will be practiced throu
 ## To-Do
 
 1. Optimize responsivity of input fields
-2. Check stretch element on table
-3. CSS Backgrounds
-4. Change logic of startid after submitting an edit
+2. CSS Backgrounds
 
 ## Planned features
 
