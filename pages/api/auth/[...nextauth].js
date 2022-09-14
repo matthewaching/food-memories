@@ -20,6 +20,7 @@ export const authOptions = {
       from: process.env.EMAIL_FROM,
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 export default NextAuth(authOptions);
