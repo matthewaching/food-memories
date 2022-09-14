@@ -17,7 +17,7 @@ export default function LoginButton() {
   }
 
   return (
-    <Button href="/login">
+    <Button href="/api/auth/signin">
       <VpnKey
         htmlColor="#023047"
         sx={{ fontSize: "59px", alignSelf: "center", mt: "0px" }}
