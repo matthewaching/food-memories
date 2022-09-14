@@ -21,11 +21,9 @@ export default function FoodMemories() {
     (async () => {
       let dishData = await fetch("/api/getDishes");
       dishData = await dishData.json();
-      console.log(dishData);
       setDb(dishData);
       const maxData = await fetch("/api/getMaxId");
       const maxId = 12;
-      console.log(maxId);
       setCurrentItem({
         id: maxId,
       });

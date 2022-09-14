@@ -43,6 +43,20 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
       </IconButton>
     );
   }
+
+  function GenerateDescription() {
+    if (type)
+      return (
+        <Typography variant="body2">
+          This dish was a {meal.toLowerCase()} {type.toLowerCase()}.
+        </Typography>
+      );
+    return (
+      <Typography variant="body2">
+        No additional information to present.
+      </Typography>
+    );
+  }
   return (
     <>
       <TableRow className="itemTable" key={id}>
@@ -82,9 +96,7 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
         <TableCell sx={{ pt: 0, pb: 0 }} colSpan={4}>
           <Collapse in={rowOpen}>
             <Box sx={{ pt: "1rem", pb: "1rem" }}>
-              <Typography variant="body2">
-                This dish was a {meal.toLowerCase()} {type.toLowerCase()}.
-              </Typography>
+              <GenerateDescription />
             </Box>
           </Collapse>
         </TableCell>

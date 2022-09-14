@@ -1,7 +1,7 @@
 import { Dialog, Button, Typography, Box } from "@mui/material";
 import { Restaurant } from "@mui/icons-material";
 import DialogField from "./DialogField";
-import { useSession } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import Link from "next/link";
 
 export default function DialogPopup({
@@ -36,7 +36,7 @@ export default function DialogPopup({
           }}
         >
           <Typography>
-            Please <Link href="/login">login</Link> to add a memory.
+            Please <Button onClick={signIn}>login</Button> to add a memory.
           </Typography>
         </Box>
       </Dialog>
@@ -50,10 +50,20 @@ export default function DialogPopup({
     });
   };
 
-  const addItem = (e) => {
+  const addItem = async (e) => {
     e.preventDefault();
-    // if (buttonFunction === "post") postDish(currentItem);
-    // if (buttonFunction === "edit") editDish(currentItem);
+    if (buttonFunction === "post") {
+      const res = await fetch("/api/postDish", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(currentItem),
+      });
+      res.json().then((data) => {
+        console.log(data);
+      });
+    }
     setCurrentItem({
       id: currentItem.id + 1,
     });

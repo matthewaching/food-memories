@@ -1,6 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import prisma from "../../src/client";
 
 export default async function getDishes(req, res) {
   const dishes = await prisma.mydishes.findMany();

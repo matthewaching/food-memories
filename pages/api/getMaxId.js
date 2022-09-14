@@ -1,6 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import prisma from "../../src/client";
 
 export default async function getMaxId(req, res) {
   const maxId = await prisma.$queryRaw`SELECT MAX(id) FROM mydishes`;
