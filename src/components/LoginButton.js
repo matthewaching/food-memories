@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import { VpnKey, AccountCircle } from "@mui/icons-material";
-import { useSession, signOut } from "next-auth/react";
+import { useSession, signOut, signIn } from "next-auth/react";
 
 export default function LoginButton() {
   const { data: session } = useSession();
@@ -17,7 +17,7 @@ export default function LoginButton() {
   }
 
   return (
-    <Button href="/api/auth/signin">
+    <Button onClick={() => signIn()}>
       <VpnKey
         htmlColor="#023047"
         sx={{ fontSize: "59px", alignSelf: "center", mt: "0px" }}
