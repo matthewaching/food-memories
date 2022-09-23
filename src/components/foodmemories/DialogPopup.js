@@ -3,6 +3,8 @@ import { Restaurant } from "@mui/icons-material";
 import DialogField from "./DialogField";
 import { useSession, signIn } from "next-auth/react";
 import Link from "next/link";
+import { useContext } from "react";
+import { TriggerContext } from "../../../pages";
 
 export default function DialogPopup({
   open,
@@ -13,6 +15,8 @@ export default function DialogPopup({
   savedId,
 }) {
   const { data: session } = useSession();
+
+  const { renderTrigger, setTrigger } = useContext(TriggerContext);
 
   function handleClose() {
     if (savedId) {
@@ -70,6 +74,8 @@ export default function DialogPopup({
     });
 
     setOpen(false);
+
+    setTrigger((renderTrigger) => !renderTrigger);
   };
 
   return (

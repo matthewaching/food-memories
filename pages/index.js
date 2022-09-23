@@ -1,44 +1,56 @@
 import MemoryTable from "../src/components/foodmemories/MemoryTable";
 import Hero from "../src/components/foodmemories/Hero";
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 import { Box } from "@mui/material";
+
+export const TriggerContext = createContext(null);
 
 export default function FoodMemories() {
   const [currentDb, setDb] = useState();
 
   const [currentItem, setCurrentItem] = useState({});
 
+  const [renderTrigger, setTrigger] = useState(true);
+
   useEffect(() => {
     (async () => {
       let dishData = await fetch("/api/getDishes");
       dishData = await dishData.json();
       setDb(dishData);
-      const maxData = await fetch("/api/getMaxId");
-      const maxId = 12;
+      let maxData = await fetch("/api/getMaxId");
+      maxData = await maxData.json();
+      const maxId = maxData[0].max + 1;
       setCurrentItem({
         id: maxId,
       });
     })();
-  }, []);
+  }, [renderTrigger]);
 
   return (
-    <Box
-      className="food-mem"
-      sx={{
-        height: "100%",
-        backgroundColor: "#8ecae6",
+    <TriggerContext.Provider
+      value={{
+        renderTrigger,
+        setTrigger,
       }}
     >
-      <Hero
-        currentItem={currentItem}
-        setCurrentItem={setCurrentItem}
-        currentDb={currentDb}
-      />
-      <MemoryTable
-        currentItem={currentItem}
-        setCurrentItem={setCurrentItem}
-        currentDb={currentDb}
-      />
-    </Box>
+      <Box
+        className="food-mem"
+        sx={{
+          height: "100%",
+          backgroundColor: "#8ecae6",
+        }}
+      >
+        <Hero
+          currentItem={currentItem}
+          setCurrentItem={setCurrentItem}
+          currentDb={currentDb}
+        />
+        <MemoryTable
+          currentItem={currentItem}
+          setCurrentItem={setCurrentItem}
+          currentDb={currentDb}
+        />
+      </Box>
+    </TriggerContext.Provider>
   );
 }
