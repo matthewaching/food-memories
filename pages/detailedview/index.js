@@ -1,7 +1,5 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { onValue, ref } from "firebase/database";
-import { db } from "../../src/firebase-config";
 import { Box, Divider, Typography } from "@mui/material";
 
 export default function DetailedView() {
@@ -10,18 +8,19 @@ export default function DetailedView() {
   const [pageItem, setItem] = useState();
 
   useEffect(() => {
-    if (!router.isReady) return;
-    const query = router.query;
-    return onValue(ref(db), (querySnapShot) => {
-      let data = querySnapShot.val() || {};
-      setItem(data.dishes[router.query.dish]);
-    });
+    (async () => {
+      if (!router.isReady) return;
+      const query = router.query;
+      let dishData = await fetch("/api/getDishes");
+      dishData = await dishData.json();
+      setItem(dishData[router.query.dish]);
+    })();
   }, [router.isReady, router.query]);
 
   if (!pageItem) return;
 
   const wasCooked = (() => {
-    if (pageItem.cooked === "Yes") {
+    if (pageItem.cooked === "true") {
       return "cooked.";
     } else {
       return "not cooked.";
