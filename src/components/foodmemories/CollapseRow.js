@@ -45,7 +45,7 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
   }
 
   function GenerateDescription() {
-    if (type)
+    if (type && meal)
       return (
         <Typography variant="body2">
           This dish was a {meal.toLowerCase()} {type.toLowerCase()}.
