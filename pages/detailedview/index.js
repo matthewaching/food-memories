@@ -10,7 +10,6 @@ export default function DetailedView() {
   useEffect(() => {
     (async () => {
       if (!router.isReady) return;
-      const query = router.query;
       let dishData = await fetch("/api/getDishes");
       dishData = await dishData.json();
       setItem(dishData[router.query.dish]);

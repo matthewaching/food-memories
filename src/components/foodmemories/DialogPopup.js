@@ -60,13 +60,15 @@ export default function DialogPopup({
         },
         body: JSON.stringify(currentItem),
       });
-      res.json().then((data) => {
-        console.log(data);
-      });
+
+      const data = await res.json();
+      console.log(data);
     }
+
     setCurrentItem({
       id: currentItem.id + 1,
     });
+
     setOpen(false);
   };
 
@@ -115,7 +117,7 @@ export default function DialogPopup({
             currentItem={currentItem}
             searchInput={searchInput}
             field="cooked"
-            label="Cooked?"
+            label="Cooked:"
           />
         </div>
         <Button

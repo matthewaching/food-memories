@@ -64,7 +64,7 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
           <Link
             href={{
               pathname: "/detailedview",
-              query: { dish: `${id}` },
+              query: { dish: `${id - 1}` },
             }}
           >
             <a>{name}</a>

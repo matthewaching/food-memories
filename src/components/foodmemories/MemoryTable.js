@@ -99,6 +99,7 @@ export default function MemoryTable({
                   item={item}
                   currentItem={currentItem}
                   setCurrentItem={setCurrentItem}
+                  key={item.id}
                 />
               );
             })}
