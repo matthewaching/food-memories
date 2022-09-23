@@ -1,21 +1,12 @@
 import MemoryTable from "../src/components/foodmemories/MemoryTable";
 import Hero from "../src/components/foodmemories/Hero";
-import { onValue, ref } from "firebase/database";
 import { useState, useEffect } from "react";
-import { db } from "../src/firebase-config";
 import { Box } from "@mui/material";
 
 export default function FoodMemories() {
   const [currentDb, setDb] = useState();
 
   const [currentItem, setCurrentItem] = useState({});
-
-  // useEffect(() => {
-  //   return onValue(ref(db), (querySnapShot) => {
-  //     let data = querySnapShot.val() || {};
-  //     setDb(data);
-  //   });
-  // }, []);
 
   useEffect(() => {
     (async () => {
