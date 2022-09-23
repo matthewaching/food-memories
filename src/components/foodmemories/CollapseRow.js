@@ -107,7 +107,7 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
         currentItem={currentItem}
         setCurrentItem={setCurrentItem}
         item={item}
-        buttonFunction="edit"
+        buttonFunction="put"
         savedId={savedId}
       />
     </>

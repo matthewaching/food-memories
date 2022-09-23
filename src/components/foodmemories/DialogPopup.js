@@ -56,18 +56,30 @@ export default function DialogPopup({
 
   const addItem = async (e) => {
     e.preventDefault();
+    let res;
+
     if (buttonFunction === "post") {
-      const res = await fetch("/api/postDish", {
+      res = await fetch("/api/postDish", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(currentItem),
       });
-
-      const data = await res.json();
-      console.log(data);
     }
+
+    if (buttonFunction === "put") {
+      res = await fetch("/api/putDish", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(currentItem),
+      });
+    }
+
+    const data = await res.json();
+    console.log(data);
 
     setCurrentItem({
       id: currentItem.id + 1,
