@@ -37,6 +37,15 @@ export default function DetailedView() {
       <Typography variant="h2" sx={{ pt: "1rem" }}>
         {pageItem.name}
       </Typography>
+      <Box
+        component="img"
+        sx={{
+          height: "300px",
+          width: "300px",
+        }}
+        alt={pageItem.name}
+        src={`https://fmdb-images.s3.us-west-1.amazonaws.com/${pageItem.id}/${pageItem.id}a.jpg`}
+      ></Box>
       <Typography variant="subtitle1">
         Experienced on: {pageItem.date}
       </Typography>
