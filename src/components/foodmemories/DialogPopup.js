@@ -22,6 +22,7 @@ export default function DialogPopup({
     if (savedId) {
       setCurrentItem({
         id: savedId,
+        cooked: false,
       });
     }
     setOpen(false);
@@ -51,6 +52,15 @@ export default function DialogPopup({
     setCurrentItem({
       ...currentItem,
       [e.target.id]: e.target.value,
+    });
+  };
+
+  const checkboxInput = (e) => {
+    const checkboxValue = e.target.value === "true" ? true : false;
+    console.log(checkboxValue);
+    setCurrentItem({
+      ...currentItem,
+      cooked: checkboxValue,
     });
   };
 
@@ -131,12 +141,25 @@ export default function DialogPopup({
             field="meal"
             label="Mealtime:"
           />
-          <DialogField
-            currentItem={currentItem}
-            searchInput={searchInput}
-            field="cooked"
-            label="Cooked:"
-          />
+          <div className="dialog-field">
+            This dish was:
+            <label htmlFor="cooked-true">cooked</label>
+            <input
+              type="radio"
+              name="cooked"
+              id="cooked-true"
+              onChange={checkboxInput}
+              value="true"
+            ></input>
+            <label htmlFor="cooked-false">not cooked</label>
+            <input
+              type="radio"
+              name="cooked"
+              id="cooked-false"
+              onChange={checkboxInput}
+              value="false"
+            ></input>
+          </div>
         </div>
         <Button
           variant="contained"
