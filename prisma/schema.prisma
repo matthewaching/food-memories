@@ -16,6 +16,8 @@ model mydishes {
   type     String?
   meal     String?
   cooked   Boolean?
+  desc     String?
+  image    String?
 }
 
 model Account {
