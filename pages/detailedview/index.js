@@ -31,6 +31,7 @@ export default function DetailedView() {
       className="App"
       sx={{
         gap: "2rem",
+        background: "linear-gradient(#8ecae6, white)",
       }}
     >
       <Typography variant="h2" sx={{ pt: "1rem" }}>
