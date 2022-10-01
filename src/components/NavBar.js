@@ -37,23 +37,6 @@ function NavBar() {
           >
             Home
           </Button>
-
-          <a
-            href="https://recipe-generator-matthewaching.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="recipe-link"
-          >
-            <Button
-              variant="text"
-              sx={{
-                color: "#023047",
-                fontWeight: "bold",
-              }}
-            >
-              Random Recipe Generator App
-            </Button>
-          </a>
         </Box>
         <Box
           sx={{
