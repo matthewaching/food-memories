@@ -41,7 +41,8 @@ export default function DetailedView() {
         sx={{
           justifySelf: "center",
           alignSelf: "start",
-          padding: "2rem",
+          maxWidth: "450px",
+          padding: "1.5rem",
           mt: "2rem",
           borderRadius: "0",
         }}
@@ -49,8 +50,8 @@ export default function DetailedView() {
         <Box
           component="img"
           sx={{
-            height: "400px",
-            width: "400px",
+            aspectRatio: "1/1",
+            width: "calc(450px - 1.5rem)",
             objectFit: "cover",
           }}
           alt={pageItem.name}
@@ -58,13 +59,17 @@ export default function DetailedView() {
         ></Box>
         <Box
           sx={{
-            height: "3.5rem",
+            height: "6rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "calc(450px - 1.5rem)",
           }}
         >
           <Typography
             sx={{
               fontFamily: "'Permanent Marker', cursive",
-              fontSize: "2.5rem",
+              fontSize: "2.25rem",
             }}
           >
             {pageItem.name}

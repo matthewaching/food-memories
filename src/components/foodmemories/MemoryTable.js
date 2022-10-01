@@ -54,7 +54,7 @@ export default function MemoryTable({
 
   const [currentPage, setPage] = useState(1);
 
-  const pageObjects = currentDb.slice((currentPage - 1) * 10, currentPage * 10);
+  const pageObjects = currentDb.slice((currentPage - 1) * 5, currentPage * 5);
 
   const changePage = (e, pageNum) => {
     setPage(pageNum);
