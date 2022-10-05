@@ -11,6 +11,12 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
         justifyContent: "center",
         alignItems: "center",
         height: "30vh",
+        background: "linear-gradient(-90deg, #8ecae6 40%, white 95%)",
+        pt: "8rem",
+        transform: "skewY(-4deg)",
+        pb: "9rem",
+        zIndex: "-1",
+        mt: "-2rem",
       }}
     >
       <Box
@@ -19,7 +25,8 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
           display: "flex",
           flexDirection: "column",
           gap: "2rem",
-          px: "10vw",
+          maxWidth: "50vw",
+          transform: "skewY(4deg)",
         }}
       >
         <Box

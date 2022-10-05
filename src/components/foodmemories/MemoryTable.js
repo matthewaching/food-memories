@@ -28,11 +28,10 @@ export default function MemoryTable({
           boxSizing: "border-box",
           width: "100%",
           height: "100%",
-          pt: "3rem",
-
           display: "flex",
           gap: "2rem",
           justifyContent: "center",
+          mt: "-6rem",
         }}
       >
         <Card
@@ -45,6 +44,7 @@ export default function MemoryTable({
             gap: "8px",
             mb: "4rem",
           }}
+          elevation="3"
         >
           <CircularProgress />
           <Typography>Retrieving Memories...</Typography>
@@ -66,11 +66,10 @@ export default function MemoryTable({
         boxSizing: "border-box",
         width: "100%",
         height: "100%",
-        pt: "3rem",
-
         display: "flex",
         gap: "2rem",
         justifyContent: "center",
+        mt: "-6rem",
       }}
     >
       <Card
@@ -83,6 +82,7 @@ export default function MemoryTable({
           gap: "8px",
           mb: "4rem",
         }}
+        elevation="3"
       >
         <Table>
           <TableHead>

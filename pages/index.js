@@ -37,7 +37,6 @@ export default function FoodMemories() {
         className="food-mem"
         sx={{
           height: "100%",
-          background: "linear-gradient(#8ecae6, white)",
         }}
       >
         <Hero
