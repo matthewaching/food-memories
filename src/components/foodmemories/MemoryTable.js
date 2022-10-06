@@ -43,6 +43,7 @@ export default function MemoryTable({
             p: "24px",
             gap: "8px",
             mb: "4rem",
+            zIndex: "1",
           }}
           elevation="3"
         >
@@ -81,6 +82,7 @@ export default function MemoryTable({
           p: "24px",
           gap: "8px",
           mb: "4rem",
+          zIndex: "1",
         }}
         elevation="3"
       >

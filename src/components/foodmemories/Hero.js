@@ -13,9 +13,8 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
         height: "30vh",
         background: "linear-gradient(-90deg, #8ecae6 40%, white 95%)",
         pt: "8rem",
-        transform: "skewY(-4deg)",
+        transform: "skewY(-8deg)",
         pb: "9rem",
-        zIndex: "-1",
         mt: "-2rem",
       }}
     >
@@ -26,7 +25,7 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
           flexDirection: "column",
           gap: "2rem",
           maxWidth: "50vw",
-          transform: "skewY(4deg)",
+          transform: "skewY(8deg)",
         }}
       >
         <Box
@@ -34,6 +33,7 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
           sx={{
             display: "flex",
             alignSelf: "stretch",
+            zIndex: "1",
           }}
         >
           <Box
