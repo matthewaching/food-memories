@@ -12,10 +12,10 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
         alignItems: "center",
         height: "30vh",
         background: "linear-gradient(-90deg, #8ecae6 40%, white 95%)",
-        pt: "8rem",
+        pt: "11rem",
         transform: "skewY(-8deg)",
         pb: "9rem",
-        mt: "-2rem",
+        mt: "-5rem",
       }}
     >
       <Box
@@ -23,7 +23,7 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
         sx={{
           display: "flex",
           flexDirection: "column",
-          gap: "2rem",
+          gap: "3rem",
           maxWidth: "50vw",
           transform: "skewY(8deg)",
         }}
@@ -51,6 +51,7 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
               variant="h1"
               sx={{
                 fontSize: "5rem",
+                fontFamily: "'Playfair Display', sans-serif",
               }}
             >
               Matt&apos;s
@@ -59,6 +60,7 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
               variant="h1"
               sx={{
                 fontSize: "5rem",
+                fontFamily: "'Playfair Display', sans-serif",
               }}
             >
               Food
@@ -67,6 +69,7 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
               variant="h1"
               sx={{
                 fontSize: "5rem",
+                fontFamily: "'Playfair Display', sans-serif",
               }}
             >
               Memories
@@ -82,10 +85,11 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
           variant="h5"
           sx={{
             textAlign: "left",
+            fontFamily: "'Noto Sans JP', sans-serif",
           }}
         >
-          A digital record of tasty or otherwise memorable dishes I have
-          experienced in my culinary journey.
+          A record of tasty or otherwise memorable dishes I have experienced in
+          my culinary journey.
         </Typography>
       </Box>
     </Box>
