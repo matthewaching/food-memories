@@ -8,12 +8,17 @@ export default function DetailedView() {
   const [pageItem, setItem] = useState();
 
   useEffect(() => {
-    (async () => {
-      if (!router.isReady) return;
-      let dishData = await fetch("/api/getDishes");
-      dishData = await dishData.json();
-      setItem(dishData[router.query.dish]);
-    })();
+    if (router.query.name) {
+      setItem(router.query);
+    } else {
+      (async () => {
+        if (!router.isReady) return;
+        let dishData = await fetch("/api/getDishes");
+        dishData = await dishData.json();
+        const fetchId = router.query.id - 1;
+        setItem(dishData[fetchId]);
+      })();
+    }
   }, [router.isReady, router.query]);
 
   if (!pageItem) return;
