@@ -15,6 +15,7 @@ export default function DetailedView() {
         if (!router.isReady) return;
         let dishData = await fetch("/api/getDishes");
         dishData = await dishData.json();
+        console.log(dishData);
         const fetchId = router.query.id - 1;
         setItem(dishData[fetchId]);
       })();
@@ -35,10 +36,9 @@ export default function DetailedView() {
     <Box
       className="App"
       sx={{
-        gap: "2rem",
         background: "linear-gradient(#8ecae6, white)",
         display: "grid",
-        gridTemplateColumns: "1fr 2fr",
+        gridTemplateColumns: "1fr 3fr",
       }}
     >
       <Card
@@ -48,7 +48,7 @@ export default function DetailedView() {
           alignSelf: "start",
           maxWidth: "450px",
           padding: "1.5rem",
-          mt: "2rem",
+          mt: "4rem",
           borderRadius: "0",
         }}
       >
@@ -83,21 +83,29 @@ export default function DetailedView() {
       </Card>
       <Box
         sx={{
-          textAlign: "left",
-          mt: "2rem",
+          justifySelf: "start",
+          p: "4rem",
         }}
       >
-        <Typography variant="h2" sx={{ pt: "1rem" }}>
-          {pageItem.name}
-        </Typography>
-        <Typography variant="subtitle1">{pageItem.date}</Typography>
-        <br />
-        <Typography variant="body1">
-          Location: {pageItem.location} ({pageItem.city})
-        </Typography>
-        <Typography variant="body1">Mealtime: {pageItem.meal}</Typography>
-        <Typography variant="body1">Type of Dish: {pageItem.type}</Typography>
-        <Typography variant="body1">This dish was {wasCooked}</Typography>
+        <Card
+          sx={{
+            textAlign: "left",
+            p: "2rem",
+          }}
+        >
+          <Typography variant="h2">{pageItem.name}</Typography>
+          <Typography variant="subtitle1">{pageItem.date}</Typography>
+          <br />
+          <Typography variant="body1">
+            Location: {pageItem.location} ({pageItem.city})
+          </Typography>
+          <Typography variant="body1">Mealtime: {pageItem.meal}</Typography>
+          <Typography variant="body1">Type of Dish: {pageItem.type}</Typography>
+          <Typography variant="body1">This dish was {wasCooked}</Typography>
+          <br />
+          <Typography variant="body1">Description:</Typography>
+          <Typography variant="body1">{pageItem.desc}</Typography>
+        </Card>
       </Box>
     </Box>
   );
