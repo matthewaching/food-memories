@@ -1,6 +1,28 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { Box, Divider, Typography, Card } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Typography,
+  Card,
+  createTheme,
+  ThemeProvider,
+} from "@mui/material";
+
+const theme = createTheme();
+
+theme.typography.h1 = {
+  fontSize: "1.5rem",
+  [theme.breakpoints.up("sm")]: {
+    fontSize: "1.8rem",
+  },
+  [theme.breakpoints.up("md")]: {
+    fontSize: "2.1rem",
+  },
+  [theme.breakpoints.up("lg")]: {
+    fontSize: "2.3rem",
+  },
+};
 
 export default function DetailedView() {
   const router = useRouter();
@@ -48,13 +70,16 @@ export default function DetailedView() {
         className="polaroid"
         elevation="7"
         sx={{
-          justifySelf: "center",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
           alignSelf: "start",
-          width: "200px + 20vw",
+          width: "calc(200px + 20vw)",
           padding: "1.5rem",
           borderRadius: "0",
           flex: "0 0 auto",
           mt: "2rem",
+          gap: "1rem",
         }}
       >
         <Box
@@ -73,17 +98,19 @@ export default function DetailedView() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "200px + 20vw",
+            width: "calc(200px + 20vw)",
           }}
         >
-          <Typography
-            sx={{
-              fontFamily: "'Permanent Marker', cursive",
-              fontSize: "2.25rem",
-            }}
-          >
-            {pageItem.name}
-          </Typography>
+          <ThemeProvider theme={theme}>
+            <Typography
+              variant="h1"
+              sx={{
+                fontFamily: "'Permanent Marker', cursive",
+              }}
+            >
+              {pageItem.name}
+            </Typography>
+          </ThemeProvider>
         </Box>
       </Card>
 
@@ -93,7 +120,7 @@ export default function DetailedView() {
           textAlign: "left",
           p: "2rem",
           alignSelf: "flex-start",
-          flex: "1 1 50vw",
+          flex: "1 1 45vw",
           mt: "2rem",
         }}
       >
