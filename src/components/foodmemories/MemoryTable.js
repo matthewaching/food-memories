@@ -84,7 +84,7 @@ export default function MemoryTable({
           mb: "4rem",
           zIndex: "1",
         }}
-        elevation="3"
+        elevation={3}
       >
         <Table>
           <TableHead>

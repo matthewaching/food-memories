@@ -37,26 +37,31 @@ export default function DetailedView() {
       className="App"
       sx={{
         background: "linear-gradient(#8ecae6, white)",
-        display: "grid",
-        gridTemplateColumns: "1fr 3fr",
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        p: "4rem",
+        gap: "2rem",
       }}
     >
       <Card
+        className="polaroid"
         elevation="7"
         sx={{
           justifySelf: "center",
           alignSelf: "start",
-          maxWidth: "450px",
+          width: "200px + 20vw",
           padding: "1.5rem",
-          mt: "4rem",
           borderRadius: "0",
+          flex: "0 0 auto",
+          mt: "2rem",
         }}
       >
         <Box
           component="img"
           sx={{
             aspectRatio: "1/1",
-            width: "calc(450px - 1.5rem)",
+            width: "calc(200px + 20vw - 1.5rem)",
             objectFit: "cover",
           }}
           alt={pageItem.name}
@@ -68,7 +73,7 @@ export default function DetailedView() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "calc(450px - 1.5rem)",
+            width: "200px + 20vw",
           }}
         >
           <Typography
@@ -81,32 +86,30 @@ export default function DetailedView() {
           </Typography>
         </Box>
       </Card>
-      <Box
+
+      <Card
+        className="memory-details"
         sx={{
-          justifySelf: "start",
-          p: "4rem",
+          textAlign: "left",
+          p: "2rem",
+          alignSelf: "flex-start",
+          flex: "1 1 50vw",
+          mt: "2rem",
         }}
       >
-        <Card
-          sx={{
-            textAlign: "left",
-            p: "2rem",
-          }}
-        >
-          <Typography variant="h2">{pageItem.name}</Typography>
-          <Typography variant="subtitle1">{pageItem.date}</Typography>
-          <br />
-          <Typography variant="body1">
-            Location: {pageItem.location} ({pageItem.city})
-          </Typography>
-          <Typography variant="body1">Mealtime: {pageItem.meal}</Typography>
-          <Typography variant="body1">Type of Dish: {pageItem.type}</Typography>
-          <Typography variant="body1">This dish was {wasCooked}</Typography>
-          <br />
-          <Typography variant="body1">Description:</Typography>
-          <Typography variant="body1">{pageItem.desc}</Typography>
-        </Card>
-      </Box>
+        <Typography variant="h2">{pageItem.name}</Typography>
+        <Typography variant="subtitle1">{pageItem.date}</Typography>
+        <br />
+        <Typography variant="body1">
+          Location: {pageItem.location} ({pageItem.city})
+        </Typography>
+        <Typography variant="body1">Mealtime: {pageItem.meal}</Typography>
+        <Typography variant="body1">Type of Dish: {pageItem.type}</Typography>
+        <Typography variant="body1">This dish was {wasCooked}</Typography>
+        <br />
+        <Typography variant="body1">Description:</Typography>
+        <Typography variant="body1">{pageItem.desc}</Typography>
+      </Card>
     </Box>
   );
 }
