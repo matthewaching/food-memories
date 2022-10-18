@@ -11,6 +11,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import DialogPopup from "./DialogPopup";
 import { Edit, ExpandMore, ExpandLess } from "@mui/icons-material";
+import { parseISO, format } from "date-fns";
 
 export default function CollapseRow({ item, currentItem, setCurrentItem }) {
   const { id, name, date, location, city, type, meal, cooked } = item;
@@ -44,6 +45,8 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
     );
   }
 
+  const convertedDate = format(parseISO(date), "MM/dd/yy");
+
   function GenerateDescription() {
     if (type && meal)
       return (
@@ -71,7 +74,7 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
             <a>{name}</a>
           </Link>
         </TableCell>
-        <TableCell>{date}</TableCell>
+        <TableCell>{convertedDate}</TableCell>
         <TableCell>
           <Box
             sx={{
