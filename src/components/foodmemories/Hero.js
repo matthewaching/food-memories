@@ -12,7 +12,7 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
         justifyContent: "center",
         alignItems: "center",
         pt: "6rem",
-        mb: "2rem",
+        mb: "3rem",
       }}
     >
       <Box
@@ -25,7 +25,7 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
           width: "100%",
           zIndex: "-1",
           mt: "-5rem",
-          pb: "12rem",
+          pb: "14rem",
         }}
       ></Box>
       <Box
@@ -33,7 +33,7 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
         sx={{
           display: "flex",
           flexDirection: "column",
-          gap: "3rem",
+          gap: "2rem",
           maxWidth: "50vw",
         }}
       >
