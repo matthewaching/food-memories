@@ -14,7 +14,6 @@ import {
 } from "@mui/material";
 
 import CollapseRow from "./CollapseRow";
-import { ResetTvRounded } from "@mui/icons-material";
 
 export default function MemoryTable({
   currentItem,

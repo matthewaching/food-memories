@@ -8,6 +8,7 @@ import {
   createTheme,
   ThemeProvider,
 } from "@mui/material";
+import { parseISO, format } from "date-fns";
 
 const theme = createTheme();
 
@@ -53,6 +54,8 @@ export default function DetailedView() {
       return "not cooked.";
     }
   })();
+
+  const convertedDate = format(parseISO(pageItem.date), "MMMM do, yyyy");
 
   return (
     <Box
@@ -125,7 +128,7 @@ export default function DetailedView() {
         }}
       >
         <Typography variant="h2">{pageItem.name}</Typography>
-        <Typography variant="subtitle1">{pageItem.date}</Typography>
+        <Typography variant="subtitle1">{convertedDate}</Typography>
         <br />
         <Typography variant="body1">
           Location: {pageItem.location} ({pageItem.city})
