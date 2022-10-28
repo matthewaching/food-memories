@@ -71,7 +71,7 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
             }}
             as={`detailedview?id=${id}`}
           >
-            <a>{name}</a>
+            {name}
           </Link>
         </TableCell>
         <TableCell>{convertedDate}</TableCell>
