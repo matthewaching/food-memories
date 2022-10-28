@@ -70,7 +70,6 @@ export default function MemoryTable({
         display: "flex",
         gap: "2rem",
         justifyContent: "center",
-        mt: "-7rem",
       }}
     >
       <Card

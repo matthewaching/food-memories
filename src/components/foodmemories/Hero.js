@@ -7,17 +7,27 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
       className="hero-box"
       sx={{
         display: "flex",
+        position: "relative",
         width: "100%",
         justifyContent: "center",
         alignItems: "center",
-        height: "30vh",
-        background: "linear-gradient(-90deg, #8ecae6 40%, white 95%)",
-        pt: "11rem",
-        transform: "skewY(-8deg)",
-        pb: "9rem",
-        mt: "-5rem",
+        pt: "6rem",
+        mb: "2rem",
       }}
     >
+      <Box
+        className="background-box"
+        sx={{
+          transform: "skewY(-8deg)",
+          position: "absolute",
+          background: "linear-gradient(-90deg, #8ecae6 40%, white 95%)",
+          height: "100%",
+          width: "100%",
+          zIndex: "-1",
+          mt: "-5rem",
+          pb: "12rem",
+        }}
+      ></Box>
       <Box
         className="hero-content"
         sx={{
@@ -25,7 +35,6 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
           flexDirection: "column",
           gap: "3rem",
           maxWidth: "50vw",
-          transform: "skewY(8deg)",
         }}
       >
         <Box

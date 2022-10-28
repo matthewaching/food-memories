@@ -34,12 +34,12 @@ export default function CollapseRow({ item, currentItem, setCurrentItem }) {
   function ToggleOpen() {
     if (rowOpen)
       return (
-        <IconButton onClick={() => setRowOpen((rowOpen) => !rowOpen)}>
+        <IconButton onClick={handleOpen}>
           <ExpandLess />
         </IconButton>
       );
     return (
-      <IconButton onClick={() => setRowOpen((rowOpen) => !rowOpen)}>
+      <IconButton onClick={handleOpen}>
         <ExpandMore />
       </IconButton>
     );
