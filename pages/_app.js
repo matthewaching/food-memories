@@ -1,5 +1,4 @@
 import "../src/App.css";
-import { PropTypes } from "prop-types";
 import NavBar from "../src/components/NavBar";
 import Head from "next/head";
 import { SessionProvider } from "next-auth/react";
@@ -26,8 +25,3 @@ export default function MyApp({
     </SessionProvider>
   );
 }
-
-MyApp.propTypes = {
-  Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.object,
-};

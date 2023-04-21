@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React, { useState } from "react";
 import {
   Pagination,
@@ -115,8 +114,3 @@ export default function MemoryTable({
     </Box>
   );
 }
-
-MemoryTable.propTypes = {
-  currentDb: PropTypes.object,
-  idArray: PropTypes.array,
-};

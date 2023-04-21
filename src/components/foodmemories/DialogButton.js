@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { Button, Typography, Box } from "@mui/material";
 import { Restaurant } from "@mui/icons-material";
 import React, { useState } from "react";
@@ -57,8 +56,3 @@ export default function DialogButton({ currentItem, setCurrentItem }) {
     </React.Fragment>
   );
 }
-
-DialogButton.propTypes = {
-  currentItem: PropTypes.object,
-  setCurrentItem: PropTypes.func,
-};
