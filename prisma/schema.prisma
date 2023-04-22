@@ -7,20 +7,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model mydishes {
-  id       Int       @id @default(autoincrement())
-  name     String
-  location String?
-  city     String?
-  type     String?
-  meal     String?
-  cooked   Boolean?
-  desc     String?
-  date     DateTime? @db.Date
-}
-
 model Account {
-  id                String  @id @default(cuid())
+  id                String  @id
   userId            String
   type              String
   provider          String
@@ -32,27 +20,27 @@ model Account {
   scope             String?
   id_token          String?
   session_state     String?
-  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  User              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
 
 model Session {
-  id           String   @id @default(cuid())
+  id           String   @id
   sessionToken String   @unique
   userId       String
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  User         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String    @id
   name          String?
   email         String?   @unique
   emailVerified DateTime?
   image         String?
-  accounts      Account[]
-  sessions      Session[]
+  Account       Account[]
+  Session       Session[]
 }
 
 model VerificationToken {
@@ -61,4 +49,16 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model mydishes {
+  id       Int       @id @default(autoincrement())
+  name     String
+  location String?
+  city     String?
+  type     String?
+  meal     String?
+  cooked   Boolean?
+  desc     String?
+  date     DateTime? @db.Date
 }
