@@ -14,7 +14,7 @@ import { Edit, ExpandMore, ExpandLess } from "@mui/icons-material";
 import { parseISO, format } from "date-fns";
 
 export default function CollapseRow({ item, currentItem, setCurrentItem }) {
-  const { id, name, date, location, city, type, meal, cooked } = item;
+  const { id, name, date, location, city, type, meal } = item;
   const [rowOpen, setRowOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [savedId, setSavedId] = useState();

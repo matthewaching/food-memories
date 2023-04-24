@@ -2,7 +2,6 @@ import { Dialog, Button, Typography, Box } from "@mui/material";
 import { Restaurant } from "@mui/icons-material";
 import DialogField from "./DialogField";
 import { useSession, signIn } from "next-auth/react";
-import Link from "next/link";
 import { useContext } from "react";
 import { TriggerContext } from "../../../pages";
 
@@ -97,7 +96,9 @@ export default function DialogPopup({
 
     setOpen(false);
 
-    setTrigger((renderTrigger) => !renderTrigger);
+    if (renderTrigger || !renderTrigger) {
+      setTrigger((renderTrigger) => !renderTrigger);
+    }
   };
 
   return (

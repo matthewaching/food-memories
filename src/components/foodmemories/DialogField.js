@@ -4,7 +4,7 @@ export default function DialogField({
   currentItem,
   searchInput,
   specialFormat,
-  setCurrentItem,
+  // setCurrentItem,
 }) {
   return (
     <div className="dialog-field">
@@ -14,7 +14,7 @@ export default function DialogField({
         id={field}
         value={currentItem[field]}
         onChange={searchInput}
-        autocomplete="off"
+        autoComplete="off"
       ></input>
     </div>
   );
