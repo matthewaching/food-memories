@@ -1,5 +1,18 @@
 import { Box, Typography } from '@mui/material';
 import DialogButton from './DialogButton';
+import { Noto_Sans_JP, Playfair_Display } from 'next/font/google';
+
+const noto = Noto_Sans_JP({
+    weight: '300',
+    subsets: ['latin'],
+    display: 'swap'
+});
+
+const playfair = Playfair_Display({
+    weight: '400',
+    subsets: ['latin'],
+    display: 'swap'
+});
 
 export default function Hero({ currentItem, setCurrentItem, currentDb }) {
     return (
@@ -53,6 +66,7 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
                             mr: 'auto'
                         }}>
                         <Typography
+                            className={playfair.className}
                             variant="h1"
                             sx={{
                                 fontSize: '5rem',
@@ -61,6 +75,7 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
                             Matt&apos;s
                         </Typography>
                         <Typography
+                            className={playfair.className}
                             variant="h1"
                             sx={{
                                 fontSize: '5rem',
@@ -69,6 +84,7 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
                             Food
                         </Typography>
                         <Typography
+                            className={playfair.className}
                             variant="h1"
                             sx={{
                                 fontSize: '5rem',
@@ -84,6 +100,7 @@ export default function Hero({ currentItem, setCurrentItem, currentDb }) {
                     />
                 </Box>
                 <Typography
+                    className={noto.className}
                     variant="h5"
                     sx={{
                         textAlign: 'left',

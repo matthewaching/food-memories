@@ -1,7 +1,8 @@
 import '../src/App.css';
-import NavBar from '../src/components/NavBar';
+
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
+import { Session } from 'next-auth';
 
 export default function MyApp({
     Component,
@@ -11,7 +12,6 @@ export default function MyApp({
         <SessionProvider session={session}>
             <Head>
                 <title>Matt&apos;s Food App</title>
-                <meta charSet="utf-8" />
                 <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1"

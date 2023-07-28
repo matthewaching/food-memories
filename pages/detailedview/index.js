@@ -8,6 +8,12 @@ import {
     ThemeProvider
 } from '@mui/material';
 import { parseISO, format } from 'date-fns';
+import { Permanent_Marker } from 'next/font/google';
+
+const marker = Permanent_Marker({
+    subsets: ['latin'],
+    display: 'swap'
+});
 
 const theme = createTheme();
 
@@ -101,6 +107,7 @@ export default function DetailedView() {
                     }}>
                     <ThemeProvider theme={theme}>
                         <Typography
+                            className={marker.className}
                             variant="h1"
                             sx={{
                                 fontFamily: "'Permanent Marker', cursive"
