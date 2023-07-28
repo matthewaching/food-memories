@@ -30,7 +30,7 @@
         "export": "next export",
         "vercel-build": "prisma generate && prisma migrate deploy && next build",
         "prisma:generate": "prisma generate",
-        "migrate:postgres": "dotenv -e .env.development.local -- npx prisma migrate resolve --applied 0_init"
+        "migrate:postgres": "npx prisma migrate deploy"
     },
     "browserslist": {
         "production": [
