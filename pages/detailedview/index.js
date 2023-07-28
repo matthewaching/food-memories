@@ -11,6 +11,7 @@ import { parseISO, format } from 'date-fns';
 import { Permanent_Marker } from 'next/font/google';
 
 const marker = Permanent_Marker({
+    weight: '400',
     subsets: ['latin'],
     display: 'swap'
 });

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import NavBar from '../components/NavBar';
-import { SessionProvider } from 'next-auth/react';
+import Provider from './provider';
 
 export const metadata: Metadata = {
     title: 'Matt&apos;s Food App',
@@ -19,13 +19,13 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <SessionProvider session={session}>
-            <html lang="en">
-                <body>
+        <html lang="en">
+            <body>
+                <Provider>
                     <NavBar />
                     {children}
-                </body>
-            </html>
-        </SessionProvider>
+                </Provider>
+            </body>
+        </html>
     );
 }

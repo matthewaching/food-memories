@@ -3,7 +3,6 @@ import { Restaurant } from '@mui/icons-material';
 import DialogField from './DialogField';
 import { useSession, signIn } from 'next-auth/react';
 import { useContext } from 'react';
-import { TriggerContext } from '../../../pages';
 
 export default function DialogPopup({
     open,

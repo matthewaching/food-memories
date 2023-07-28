@@ -1,11 +1,9 @@
 'use client';
 
-import MemoryTable from '../src/components/foodmemories/MemoryTable';
-import Hero from '../src/components/foodmemories/Hero';
-import { useState, useEffect, createContext } from 'react';
+import MemoryTable from '../components/foodmemories/MemoryTable';
+import Hero from '../components/foodmemories/Hero';
+import { useState, useEffect } from 'react';
 import { Box } from '@mui/material';
-
-export const TriggerContext = createContext(null);
 
 export default function FoodMemories() {
     const [currentDb, setDb] = useState();
