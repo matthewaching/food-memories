@@ -3,7 +3,7 @@
     "editor.formatOnType": false,
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-        "source.organizeImports": false
+        "source.organizeImports": "never"
     },
     "editor.formatOnSaveMode": "file",
     "files.autoSave": "onFocusChange"

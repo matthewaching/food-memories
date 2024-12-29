@@ -14,8 +14,6 @@ export default function DialogPopup({
 }) {
     const { data: session } = useSession();
 
-    const { renderTrigger, setTrigger } = useContext(TriggerContext);
-
     function handleClose() {
         if (savedId) {
             setCurrentItem({

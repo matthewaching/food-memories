@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from '@mui/material';
 import { VpnKey, AccountCircle } from '@mui/icons-material';
 import { useSession, signOut, signIn } from 'next-auth/react';

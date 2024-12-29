@@ -10,8 +10,6 @@ export default function FoodMemories() {
 
     const [currentItem, setCurrentItem] = useState({});
 
-    const [renderTrigger, setTrigger] = useState(true);
-
     useEffect(() => {
         (async () => {
             let dishData = await fetch('/api/getDishes');
@@ -24,30 +22,24 @@ export default function FoodMemories() {
                 id: maxId
             });
         })();
-    }, [renderTrigger]);
+    }, []);
 
     return (
-        <TriggerContext.Provider
-            value={{
-                renderTrigger,
-                setTrigger
+        <Box
+            className="food-mem"
+            sx={{
+                height: '100%'
             }}>
-            <Box
-                className="food-mem"
-                sx={{
-                    height: '100%'
-                }}>
-                <Hero
-                    currentItem={currentItem}
-                    setCurrentItem={setCurrentItem}
-                    currentDb={currentDb}
-                />
-                <MemoryTable
-                    currentItem={currentItem}
-                    setCurrentItem={setCurrentItem}
-                    currentDb={currentDb}
-                />
-            </Box>
-        </TriggerContext.Provider>
+            <Hero
+                currentItem={currentItem}
+                setCurrentItem={setCurrentItem}
+                currentDb={currentDb}
+            />
+            <MemoryTable
+                currentItem={currentItem}
+                setCurrentItem={setCurrentItem}
+                currentDb={currentDb}
+            />
+        </Box>
     );
 }

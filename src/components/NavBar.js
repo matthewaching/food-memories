@@ -10,7 +10,6 @@ function NavBar() {
             sx={{
                 backgroundColor: 'white',
                 height: '4rem',
-                zIndex: (theme) => theme.zIndex.drawer + 1,
                 justifyContent: 'center'
             }}>
             <Toolbar
