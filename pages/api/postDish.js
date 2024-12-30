@@ -1,4 +1,4 @@
-import prisma from '../../src/client';
+import prisma from '@prisma/client';
 
 export default async function postDish(req, res) {
     if (req.method !== 'POST') {

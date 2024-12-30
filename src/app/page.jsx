@@ -13,6 +13,7 @@ export default function FoodMemories() {
     useEffect(() => {
         (async () => {
             let dishData = await fetch('/api/getDishes');
+            // fetch('http://backend.com/api/getDishes');
             dishData = await dishData.json();
             setDb(dishData);
             let maxData = await fetch('/api/getMaxId');

@@ -101,7 +101,7 @@ export default function MemoryTable({
                     </TableBody>
                 </Table>
                 <Pagination
-                    count={10}
+                    count={Math.ceil(currentDb.length / 5)}
                     variant="outlined"
                     page={currentPage}
                     onChange={changePage}

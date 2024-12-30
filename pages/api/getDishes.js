@@ -1,4 +1,4 @@
-import prisma from '../../src/client';
+import prisma from '../../src/db';
 
 export default async function getDishes(req, res) {
     const dishes = await prisma.mydishes.findMany({
@@ -6,7 +6,7 @@ export default async function getDishes(req, res) {
             {
                 id: 'asc'
             }
-        ]
+        ],
     });
     res.status(200).json(dishes);
 }
